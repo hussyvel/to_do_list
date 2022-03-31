@@ -4,7 +4,8 @@ class TodoItemsController < ApplicationController
 
   # GET todo_lists/1/todo_items
   def index
-    @todo_items = @todo_list.todo_items
+    #@todo_items = @todo_list.todo_items
+    @todo_list = @todo_list.todo_items
   end
 
   # GET todo_lists/1/todo_items/1
@@ -43,8 +44,8 @@ class TodoItemsController < ApplicationController
   # DELETE todo_lists/1/todo_items/1
   def destroy
     @todo_item.destroy
-    # redirect_to todo_list_todo_items_url(@todo_list)
-    redirect_to todo_list_todo_items_url(@todo_list)
+    #redirect_to todo_list_todo_items_url(@todo_list, @todo_items)
+    redirect_to todo_list_url(@todo_list)
   end
 
   private
@@ -54,6 +55,7 @@ class TodoItemsController < ApplicationController
     end
 
     def set_todo_item
+      #@todo_item = @todo_list.todo_items.find(params[:id])
       @todo_item = @todo_list.todo_items.find(params[:id])
     end
 

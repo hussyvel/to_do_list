@@ -1,6 +1,5 @@
 class TodoList < ApplicationRecord
-  has_many :todo_items
-
+  has_many :todo_items, dependent: :destroy
   def percent_complete
     return 0 if total_items == 0
     (100 * completed_items.to_f / total_items).round(1)

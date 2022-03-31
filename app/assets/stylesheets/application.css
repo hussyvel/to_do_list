@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .btn-danger {
+    margin-left: 600px;
+ }
