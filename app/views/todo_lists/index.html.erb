@@ -9,6 +9,7 @@
     <% @todo_lists.each do |todo_list| %>
       <li class='list-group-item'>
         <%= link_to todo_list.title, todo_list %>
+       <%= link_to 'Excluir', todo_list_path(todo_list), method: :delete, class:'btn btn-danger', data: { confirm: I18n.t('are_you_sure') } %>       
       </li>
     <% end %>
 </ul>
