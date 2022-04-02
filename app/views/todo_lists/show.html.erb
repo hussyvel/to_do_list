@@ -2,10 +2,10 @@
     <div>
         <h5 class='m-0'>
           <b><%= @todo_list.title %></b>
-          <span class="badge badge-<%= @todo_list.badge_color %>"><%= @todo_list.status %></span>
-      </h5>
-      <p class='text-secondary m-0'><small><%= @todo_list.percent_complete %>% Complete (<%= 
-      @todo_list.completed_items %>/<%= @todo_list.total_items %> Todo Items)</small></p>
+            <span class="badge badge-<%= @todo_list.badge_color %>"><%= @todo_list.status %></span>
+        </h5>
+        <p class='text-secondary m-0'><small><%= @todo_list.percent_complete %>% Complete (<%= 
+           @todo_list.completed_items %>/<%= @todo_list.total_items %> Todo Items)</small></p>
     </div>
     <div>
       <%= link_to 'Edit', edit_todo_list_path(@todo_list), class:'btn btn-secondary' %>
@@ -27,8 +27,9 @@
       <div class="input-group-append">
         <%= f.submit "Add", class: 'btn btn-primary input-group-btn' %>
       </div>
-    </div>
-    <div>
+  </div>
+
+  <div class="list-group">
       <% @todo_list.todo_items.each do | todo_item | %> 
         <p> <%= todo_item.description %> - <%= link_to 'Excluir', todo_list_todo_item_path( @todo_list, todo_item), method: :delete, class:'btn btn-danger' %> </p>
       <% end %>
@@ -52,4 +53,7 @@
       <% end %>
     <% end %>
   </ul>
+    <div>
+        <p> <%=link_to 'Voltar', todo_lists_path %> </p>
+    </div>
 </div>
